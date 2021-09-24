@@ -14,6 +14,7 @@ public enum IAStates
     ENGAGING,
     CHASING
 }
+
 public class EnemyIA : MonoBehaviour
 {
     Player e;
