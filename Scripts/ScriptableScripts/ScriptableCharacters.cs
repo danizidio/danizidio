@@ -1,7 +1,12 @@
-﻿using System.Collections;
+//Scriptable script to create scriptable objects
+//With this i can develop a lot of "jobs" for players to use with unique attributes
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+//To make this item appears in Create asset menu
+//Player Class is the name on the create asset menu
+//And with this string parameters for default name when the object is created
 [CreateAssetMenu(fileName = "Give a Name", menuName = "Player Class", order = 1)]
 public class ScriptableCharacters : ScriptableObject
 {
