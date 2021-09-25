@@ -1,3 +1,8 @@
+//This code holds my enums, variables and functions to manipulate my state machines
+//Attack States - Attacks properties to cause aditional effects
+//Player states - Tell what the object is doing
+//Game States - Manages the match phases
+
 using UnityEngine;
 
 namespace StateMachine
