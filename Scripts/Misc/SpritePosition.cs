@@ -2,6 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+//This script Manages the layer for sprites
+//The idea is to give some sense of 3D using only 2D objects
+//Based on the distance between the objects the value changes
+//Looks like the 2D object is in front or back compared to the other
+
 public class SpritePosition : MonoBehaviour
 {
     SpriteRenderer[] s;
