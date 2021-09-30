@@ -53,15 +53,12 @@ public class Moving : MonoBehaviour
 
     public void CanJump(float mobility)
     {
-        if (CanAttack)
-        {  
-            if (IsOnGround())
-            {
-                Instantiate(p.Hero.Dust, new Vector3(p.FootDetector.position.x, p.FootDetector.position.y, p.FootDetector.position.z), Quaternion.identity);
-                this.GetComponent<Rigidbody>().AddForce(new Vector2(0, mobility));
+       if (IsOnGround() && CanAttack)
+         {
+             Instantiate(p.Hero.Dust, new Vector3(p.FootDetector.position.x, p.FootDetector.position.y, p.FootDetector.position.z), Quaternion.identity);
+             this.GetComponent<Rigidbody>().AddForce(new Vector2(0, mobility));
 
-                st.nextState(PlayerStates.MOVING);
-            }
+             st.nextState(PlayerStates.MOVING);
         }
     }
 
