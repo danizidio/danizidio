@@ -3,6 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+//This script manages the UI for a life bar
+//combo counter and if the life bar is active for a player
+
 public class LifeBarBehaviour : MonoBehaviour
 {
     Animator anim;
@@ -17,6 +20,8 @@ public class LifeBarBehaviour : MonoBehaviour
 
     public ComboCounter combo;
 
+//Adjust the fill amount properties for the images
+//And setting a specific color representing an untouched health point for a player
     private void Start()
     {
         anim = this.GetComponent<Animator>();
@@ -29,6 +34,10 @@ public class LifeBarBehaviour : MonoBehaviour
         if (enemyLifeBar != null) enemyLifeBar.SetActive(false);
     }
 
+//This update is called when a player takes a hit
+//Setting the animation
+//the calcs for the damage subtracts the value for current life
+//The color for the image representing the life bar changes if not in 100% life and if drops below 30%
     public void UpdateLifeBar(float currentLife, float maxLife)
     {
         anim.SetTrigger("HIT");
@@ -54,6 +63,8 @@ public class LifeBarBehaviour : MonoBehaviour
         }
     }
 
+//The red bar is the effect for the primary life bar
+//First the primary bar is reduced, after some time the secondary drops too
     IEnumerator RedBarUpdate(float v,float currentLife, float maxLife)
     {
         yield return new WaitForSeconds(.5f);
@@ -68,6 +79,8 @@ public class LifeBarBehaviour : MonoBehaviour
         }
     }
 
+//A little health bar appears when a player gives a hit in an enemy
+//Stays for an amount of time then desappears if dont have any update
     public void EnemyBarUpdate(float currentLife, float maxLife, Sprite portrait)
     {
         enemyLifeBar.SetActive(true);
@@ -79,6 +92,8 @@ public class LifeBarBehaviour : MonoBehaviour
         enemyLifeBar.GetComponent<EnemyLifeBar>().StayActive();
     }
 
+//If the bar is active the bar appears with all pertinent UI
+//If not, the text for "press start" shows
     public void SettingLifeBars(bool act)
     {
         CharPortrait.gameObject.SetActive(act);
@@ -86,7 +101,7 @@ public class LifeBarBehaviour : MonoBehaviour
     }
 
 
-
+//Show the values stored em the combo script
     public void ComboIncrement()
     {
         combo.GetComponent<ComboCounter>().ComboIncrement();
